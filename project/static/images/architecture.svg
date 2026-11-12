@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1d3b" />
+      <stop offset="100%" stop-color="#081224" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7928ca" />
+      <stop offset="100%" stop-color="#ff0080" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <filter id="boxGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#00f2fe" flood-opacity="0.15" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#00f2fe" />
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1000" height="480" rx="16" fill="#060c18" stroke="#172a50" stroke-width="1.5"/>
+
+  <!-- Section Header -->
+  <text x="50" y="48" font-family="'Segoe UI', Inter, sans-serif" font-size="20" font-weight="700" fill="#ffffff">SYSTEM ARCHITECTURE PIPELINE</text>
+  <text x="50" y="70" font-family="'Segoe UI', Inter, sans-serif" font-size="12" fill="#00f2fe" letter-spacing="1.5">END-TO-END INTELLIGENT TRAFFIC CONGESTION FORECASTING ENGINE</text>
+
+  <!-- STEP 1: Data Ingestion Layer -->
+  <g transform="translate(40, 110)">
+    <rect width="200" height="310" rx="12" fill="url(#cardBg)" stroke="#00f2fe" stroke-width="1.5" filter="url(#boxGlow)"/>
+    <rect x="0" y="0" width="200" height="42" rx="12" fill="#0f264d"/>
+    <text x="100" y="26" font-family="'Segoe UI', Inter, sans-serif" font-size="13" font-weight="bold" fill="#00f2fe" text-anchor="middle">1. DATA INGESTION</text>
+    
+    <!-- Item 1 -->
+    <rect x="15" y="60" width="170" height="46" rx="8" fill="#132446" stroke="#233a68" stroke-width="1"/>
+    <text x="30" y="80" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Inductive Loop Sensors</text>
+    <text x="30" y="96" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94a3b8">Vehicle count &amp; occupancy rate</text>
+
+    <!-- Item 2 -->
+    <rect x="15" y="120" width="170" height="46" rx="8" fill="#132446" stroke="#233a68" stroke-width="1"/>
+    <text x="30" y="140" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Smart CCTV Cameras</text>
+    <text x="30" y="156" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94a3b8">Optical velocity &amp; density feed</text>
+
+    <!-- Item 3 -->
+    <rect x="15" y="180" width="170" height="46" rx="8" fill="#132446" stroke="#233a68" stroke-width="1"/>
+    <text x="30" y="200" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Weather &amp; Calendar API</text>
+    <text x="30" y="216" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94a3b8">Precipitation &amp; commute rush</text>
+
+    <!-- Item 4 -->
+    <rect x="15" y="240" width="170" height="46" rx="8" fill="#132446" stroke="#233a68" stroke-width="1"/>
+    <text x="30" y="260" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Historical Traffic Data</text>
+    <text x="30" y="276" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94a3b8">Spatial-temporal time series</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="240" y1="265" x2="275" y2="265" stroke="#00f2fe" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 2: Feature Engineering & Preprocessing -->
+  <g transform="translate(280, 110)">
+    <rect width="200" height="310" rx="12" fill="url(#cardBg)" stroke="#3b82f6" stroke-width="1.5" filter="url(#boxGlow)"/>
+    <rect x="0" y="0" width="200" height="42" rx="12" fill="#142c5b"/>
+    <text x="100" y="26" font-family="'Segoe UI', Inter, sans-serif" font-size="13" font-weight="bold" fill="#60a5fa" text-anchor="middle">2. PREPROCESSING</text>
+    
+    <rect x="15" y="60" width="170" height="46" rx="8" fill="#132446" stroke="#233a68" stroke-width="1"/>
+    <text x="30" y="80" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Data Cleaning &amp; Imputation</text>
+    <text x="30" y="96" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94a3b8">Handling missing sensor packets</text>
+
+    <rect x="15" y="120" width="170" height="46" rx="8" fill="#132446" stroke="#233a68" stroke-width="1"/>
+    <text x="30" y="140" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Temporal Rush Normalization</text>
+    <text x="30" y="156" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94a3b8">Morning/Evening peak weighting</text>
+
+    <rect x="15" y="180" width="170" height="46" rx="8" fill="#132446" stroke="#233a68" stroke-width="1"/>
+    <text x="30" y="200" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Greenshields Flow Model</text>
+    <text x="30" y="216" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94a3b8">Volume-to-capacity (v/c) ratio</text>
+
+    <rect x="15" y="240" width="170" height="46" rx="8" fill="#132446" stroke="#233a68" stroke-width="1"/>
+    <text x="30" y="260" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Weather Multipliers</text>
+    <text x="30" y="276" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94a3b8">Rain/fog deceleration factors</text>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="480" y1="265" x2="515" y2="265" stroke="#00f2fe" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 3: ML Inference Engine -->
+  <g transform="translate(520, 110)">
+    <rect width="200" height="310" rx="12" fill="url(#cardBg)" stroke="#8b5cf6" stroke-width="1.5" filter="url(#boxGlow)"/>
+    <rect x="0" y="0" width="200" height="42" rx="12" fill="#24194d"/>
+    <text x="100" y="26" font-family="'Segoe UI', Inter, sans-serif" font-size="13" font-weight="bold" fill="#c084fc" text-anchor="middle">3. ML CORE ENGINE</text>
+    
+    <rect x="15" y="60" width="170" height="46" rx="8" fill="#1f183e" stroke="#3b2b73" stroke-width="1"/>
+    <text x="30" y="80" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Random Forest Regressor</text>
+    <text x="30" y="96" font-family="'Segoe UI', sans-serif" font-size="9" fill="#c084fc">High-variance decision trees</text>
+
+    <rect x="15" y="120" width="170" height="46" rx="8" fill="#1f183e" stroke="#3b2b73" stroke-width="1"/>
+    <text x="30" y="140" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Gradient Boosting Classifier</text>
+    <text x="30" y="156" font-family="'Segoe UI', sans-serif" font-size="9" fill="#c084fc">Congestion state (Low/Med/High)</text>
+
+    <rect x="15" y="180" width="170" height="46" rx="8" fill="#1f183e" stroke="#3b2b73" stroke-width="1"/>
+    <text x="30" y="200" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">BPR Velocity Function</text>
+    <text x="30" y="216" font-family="'Segoe UI', sans-serif" font-size="9" fill="#c084fc">Bureau of Public Roads speed est.</text>
+
+    <rect x="15" y="240" width="170" height="46" rx="8" fill="#1f183e" stroke="#3b2b73" stroke-width="1"/>
+    <text x="30" y="260" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Model Confidence Metric</text>
+    <text x="30" y="276" font-family="'Segoe UI', sans-serif" font-size="9" fill="#c084fc">Continuous 94%+ reliability</text>
+  </g>
+
+  <!-- Arrow 3 -> 4 -->
+  <line x1="720" y1="265" x2="755" y2="265" stroke="#00f2fe" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 4: Application & Traffic Actuation -->
+  <g transform="translate(760, 110)">
+    <rect width="200" height="310" rx="12" fill="url(#cardBg)" stroke="#10b981" stroke-width="1.5" filter="url(#boxGlow)"/>
+    <rect x="0" y="0" width="200" height="42" rx="12" fill="#0d3429"/>
+    <text x="100" y="26" font-family="'Segoe UI', Inter, sans-serif" font-size="13" font-weight="bold" fill="#34d399" text-anchor="middle">4. DASHBOARD &amp; ACTION</text>
+    
+    <rect x="15" y="60" width="170" height="46" rx="8" fill="#102b28" stroke="#1c554e" stroke-width="1"/>
+    <text x="30" y="80" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Dynamic Web Dashboard</text>
+    <text x="30" y="96" font-family="'Segoe UI', sans-serif" font-size="9" fill="#6ee7b7">Chart.js real-time analytics</text>
+
+    <rect x="15" y="120" width="170" height="46" rx="8" fill="#102b28" stroke="#1c554e" stroke-width="1"/>
+    <text x="30" y="140" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Congestion Severity Alerts</text>
+    <text x="30" y="156" font-family="'Segoe UI', sans-serif" font-size="9" fill="#6ee7b7">Green, Yellow, Red indicators</text>
+
+    <rect x="15" y="180" width="170" height="46" rx="8" fill="#102b28" stroke="#1c554e" stroke-width="1"/>
+    <text x="30" y="200" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Adaptive Signal Timing</text>
+    <text x="30" y="216" font-family="'Segoe UI', sans-serif" font-size="9" fill="#6ee7b7">Automated green phase extension</text>
+
+    <rect x="15" y="240" width="170" height="46" rx="8" fill="#102b28" stroke="#1c554e" stroke-width="1"/>
+    <text x="30" y="260" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Dynamic Rerouting Logic</text>
+    <text x="30" y="276" font-family="'Segoe UI', sans-serif" font-size="9" fill="#6ee7b7">Peripheral bypass advisory</text>
+  </g>
+</svg>

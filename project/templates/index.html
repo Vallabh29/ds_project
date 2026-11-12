@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INTELLIGENT TRAFFIC PREDICTION SYSTEM | KLH University CSE</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="static/images/logo.svg">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="static/css/style.css">
+
+  <!-- Chart.js 4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Background Ambient Cyber Elements -->
+  <div class="cyber-bg-grid"></div>
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Sticky Glassmorphic Navbar -->
+  <header>
+    <nav class="navbar" id="navbar">
+      <div class="container nav-content">
+        <!-- Brand Logo -->
+        <a href="#home" class="brand-logo">
+          <img src="static/images/logo.svg" alt="Traffic AI Logo" class="brand-icon">
+          <div class="brand-text">
+            <span class="brand-name">TRAFFIC<span class="text-gradient">AI</span> PREDICTOR</span>
+            <span class="brand-subtitle">INTELLIGENT CONGESTION SYSTEM</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+          <li><a href="#prediction" class="nav-link">Prediction</a></li>
+          <li><a href="#analytics" class="nav-link">Analytics</a></li>
+          <li><a href="#monitoring" class="nav-link">Monitoring</a></li>
+          <li><a href="#about" class="nav-link">About Project</a></li>
+          <li><a href="#team" class="nav-link">Team</a></li>
+        </ul>
+
+        <!-- Right Side Nav Actions -->
+        <div class="nav-actions">
+          <div class="sys-status-badge">
+            <span class="pulse-dot"></span> AI Engine Online
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="openReportModal()">
+            <i class="fa-solid fa-file-contract"></i> Viva Sheet
+          </button>
+          <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========================================================================
+       SECTION A: Home / Hero Section
+       ======================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="hero-background-art"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Hero Left Content -->
+        <div class="hero-content">
+          <div class="academic-badge">
+            <i class="fa-solid fa-graduation-cap"></i> KLH UNIVERSITY • CSE CAPSTONE PROJECT • 2026–2027
+          </div>
+
+          <h1 class="hero-title">
+            INTELLIGENT TRAFFIC <br>
+            <span class="text-gradient">PREDICTION SYSTEM</span>
+          </h1>
+
+          <h2 class="hero-subtitle">
+            <i class="fa-solid fa-brain"></i> AI-Powered Traffic Monitoring &amp; Congestion Prediction
+          </h2>
+
+          <p class="hero-desc">
+            A state-of-the-art intelligent traffic management platform engineered to predict vehicular congestion, 
+            optimize urban arterial velocity, and forecast traffic density using historical spatial-temporal datasets 
+            and machine learning algorithms.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#dashboard" class="btn btn-primary">
+              <i class="fa-solid fa-chart-line"></i> Explore Dashboard
+            </a>
+            <a href="#prediction" class="btn btn-purple">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> View Predictions
+            </a>
+            <a href="#monitoring" class="btn btn-secondary">
+              <i class="fa-solid fa-tower-broadcast"></i> Live Monitoring
+            </a>
+          </div>
+
+          <!-- Hero Bottom Meta Strip -->
+          <div class="hero-meta-strip">
+            <div class="meta-item">
+              <div class="meta-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div class="meta-text">
+                <span class="meta-label">Accuracy Rate</span>
+                <span class="meta-value">94.8% AI Reliability</span>
+              </div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+              <div class="meta-text">
+                <span class="meta-label">Active Sensors</span>
+                <span class="meta-value">24 City Nodes</span>
+              </div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="meta-text">
+                <span class="meta-label">Local Time</span>
+                <span class="meta-value" id="live-nav-clock">--:--:--</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right: Live Telemetry Preview Card -->
+        <div class="hero-visual-card">
+          <div class="card-top-bar">
+            <div class="hud-title">
+              <i class="fa-solid fa-network-wired" style="color:var(--accent-cyan);"></i>
+              <span>SMART ARTERIAL NETWORK HUD</span>
+            </div>
+            <span class="hud-status">REAL-TIME TELEMETRY</span>
+          </div>
+
+          <div class="telemetry-mini-grid">
+            <div class="mini-stat-box">
+              <div class="stat-box-label">Monitored Corridors</div>
+              <div class="stat-box-val">6 <span>Major Arterials</span></div>
+              <span class="stat-box-pill pill-cyan">All Connected</span>
+            </div>
+
+            <div class="mini-stat-box">
+              <div class="stat-box-label">Inflow Rate</div>
+              <div class="stat-box-val">8,780 <span>veh/hr</span></div>
+              <span class="stat-box-pill pill-green">Optimal Intake</span>
+            </div>
+
+            <div class="mini-stat-box">
+              <div class="stat-box-label">Congestion Index</div>
+              <div class="stat-box-val">64% <span>Moderate</span></div>
+              <span class="stat-box-pill pill-yellow">Level 2 Alert</span>
+            </div>
+
+            <div class="mini-stat-box">
+              <div class="stat-box-label">Adaptive Delay Avoided</div>
+              <div class="stat-box-val">22 <span>mins/driver</span></div>
+              <span class="stat-box-pill pill-green">AI Routing Active</span>
+            </div>
+          </div>
+
+          <!-- Live Arterial Flow Progress -->
+          <div class="live-feed-banner">
+            <div class="feed-header">
+              <span><i class="fa-solid fa-wave-square" style="color:var(--accent-cyan);"></i> Tech Corridor Expressway (TC-101)</span>
+              <span style="color:var(--accent-cyan); font-weight:700;">84% Density</span>
+            </div>
+            <div class="corridor-progress">
+              <div class="progress-fill fill-cyan" style="width: 84%;"></div>
+            </div>
+            <div class="feed-legend">
+              <span>Speed: 36.4 km/h</span>
+              <span>Capacity: 2,400 veh/hr</span>
+              <span style="color:#f87171;"><i class="fa-solid fa-triangle-exclamation"></i> Slowdown Warning</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION B: Dashboard (Statistics Cards & KPIs)
+       ======================================================================== -->
+  <section class="dashboard-section" id="dashboard">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag"><i class="fa-solid fa-gauge"></i> Real-Time Statistics</span>
+        <h2 class="section-title">Traffic Telemetry <span class="text-gradient">Dashboard</span></h2>
+        <p class="section-subtitle">
+          Continuous aggregation of vehicular density, network velocity, and congestion levels across the metropolitan grid.
+        </p>
+      </div>
+
+      <!-- 4 Main Statistics Cards -->
+      <div class="kpi-cards-grid">
+        <!-- 1. Total Vehicles -->
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <div class="kpi-icon-wrap">
+              <i class="fa-solid fa-car-side"></i>
+            </div>
+            <span class="trend-badge trend-up">
+              <i class="fa-solid fa-arrow-trend-up"></i> +4.8% vs last hr
+            </span>
+          </div>
+          <div class="kpi-title">Total Vehicles Monitored</div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-total-vehicles">14,820</span>
+            <span class="kpi-unit">veh</span>
+          </div>
+          <div class="kpi-footer-detail">
+            <i class="fa-solid fa-circle-check" style="color:var(--status-green);"></i>
+            <span>Aggregated across 24 sensor checkpoints</span>
+          </div>
+        </div>
+
+        <!-- 2. Current Traffic Density -->
+        <div class="kpi-card yellow-kpi">
+          <div class="kpi-top">
+            <div class="kpi-icon-wrap">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <span class="trend-badge trend-neutral">
+              <i class="fa-solid fa-minus"></i> Stable Volume
+            </span>
+          </div>
+          <div class="kpi-title">Current Traffic Density</div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-current-density">68%</span>
+            <span class="kpi-unit">ratio</span>
+          </div>
+          <div class="kpi-footer-detail">
+            <i class="fa-solid fa-triangle-exclamation" style="color:var(--status-yellow);"></i>
+            <span>Moderate density threshold (50% - 75%)</span>
+          </div>
+        </div>
+
+        <!-- 3. Average Vehicle Speed -->
+        <div class="kpi-card green-kpi">
+          <div class="kpi-top">
+            <div class="kpi-icon-wrap">
+              <i class="fa-solid fa-gauge-high"></i>
+            </div>
+            <span class="trend-badge trend-down">
+              <i class="fa-solid fa-arrow-trend-up"></i> +3.2 km/h
+            </span>
+          </div>
+          <div class="kpi-title">Average Vehicle Speed</div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-avg-speed">42.5</span>
+            <span class="kpi-unit">km/h</span>
+          </div>
+          <div class="kpi-footer-detail">
+            <i class="fa-solid fa-road" style="color:var(--accent-cyan);"></i>
+            <span>Optimal urban arterial velocity standard</span>
+          </div>
+        </div>
+
+        <!-- 4. Congestion Level -->
+        <div class="kpi-card purple-kpi">
+          <div class="kpi-top">
+            <div class="kpi-icon-wrap">
+              <i class="fa-solid fa-traffic-light"></i>
+            </div>
+            <span class="trend-badge" style="background:rgba(121,40,202,0.2); color:#c084fc;">
+              <span class="pulse-dot"></span> Live Level
+            </span>
+          </div>
+          <div class="kpi-title">Congestion Level Status</div>
+          <div class="kpi-value-row">
+            <span class="kpi-number text-gradient" id="kpi-congestion-badge">Medium</span>
+          </div>
+          <div class="kpi-footer-detail">
+            <i class="fa-solid fa-circle-info" style="color:#c084fc;"></i>
+            <span>Adaptive green timing deployed on Sector 4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary Metrics Bar -->
+      <div class="secondary-kpi-bar">
+        <div class="sec-kpi-item">
+          <i class="fa-solid fa-shield-halved sec-kpi-icon"></i>
+          <div class="sec-kpi-text">
+            <h5>Incident-Free Uptime</h5>
+            <p>4h 18m Zero Gridlock</p>
+          </div>
+        </div>
+        <div class="sec-kpi-item">
+          <i class="fa-solid fa-clock-rotate-left sec-kpi-icon"></i>
+          <div class="sec-kpi-text">
+            <h5>Prediction Horizon</h5>
+            <p>Next 60 Minutes</p>
+          </div>
+        </div>
+        <div class="sec-kpi-item">
+          <i class="fa-solid fa-gas-pump sec-kpi-icon"></i>
+          <div class="sec-kpi-text">
+            <h5>Fuel Waste Prevented</h5>
+            <p>~1,420 Liters / Day</p>
+          </div>
+        </div>
+        <div class="sec-kpi-item">
+          <i class="fa-solid fa-leaf sec-kpi-icon"></i>
+          <div class="sec-kpi-text">
+            <h5>CO2 Reduction Factor</h5>
+            <p>-18.4% Emissions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION C: Traffic Prediction (Interactive Machine Learning Interface)
+       ======================================================================== -->
+  <section class="prediction-section" id="prediction">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Forecasting Engine</span>
+        <h2 class="section-title">Traffic Congestion <span class="text-gradient">Prediction</span></h2>
+        <p class="section-subtitle">
+          Input road parameters, time, and environmental variables to compute predicted traffic density, 
+          congestion classification, and estimated vehicle speed using our machine learning model.
+        </p>
+      </div>
+
+      <div class="prediction-layout">
+        <!-- Left: Prediction Parameter Input Form -->
+        <div class="prediction-card">
+          <div class="form-header">
+            <h3><i class="fa-solid fa-sliders" style="color:var(--accent-cyan);"></i> Input Traffic Parameters</h3>
+            <p>Configure spatial-temporal conditions for algorithmic inference.</p>
+          </div>
+
+          <form id="traffic-prediction-form">
+            <!-- 1. Location Selection -->
+            <div class="form-group">
+              <label class="form-label" for="pred-location">
+                <span><i class="fa-solid fa-location-dot"></i> Road Corridor / Sector</span>
+                <span class="badge-hint">6 Monitored Arterials</span>
+              </label>
+              <select class="form-control" id="pred-location" required>
+                <option value="tech_corridor" selected>Tech Corridor Expressway (TC-101)</option>
+                <option value="metro_central">Metro Central Interchange (MC-204)</option>
+                <option value="airport_corridor">Airport Highway Corridor (AH-305)</option>
+                <option value="outer_ring">Outer Ring Road (North Sector) (OR-402)</option>
+                <option value="cyber_junction">Cyber Junction Road (CJ-108)</option>
+                <option value="financial_district">Financial District Avenue (FD-506)</option>
+              </select>
+            </div>
+
+            <!-- 2. Date and Time -->
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="pred-date">
+                  <span><i class="fa-regular fa-calendar"></i> Date</span>
+                </label>
+                <input type="date" class="form-control" id="pred-date" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="pred-time">
+                  <span><i class="fa-regular fa-clock"></i> Time</span>
+                </label>
+                <input type="time" class="form-control" id="pred-time" required>
+              </div>
+            </div>
+
+            <!-- Time Quick Presets -->
+            <div class="form-group" style="margin-top:-0.5rem; margin-bottom:1.25rem;">
+              <div class="time-presets">
+                <span class="preset-chip active" data-time="08:30" data-vehicles="2250">Morning Rush (08:30)</span>
+                <span class="preset-chip" data-time="13:00" data-vehicles="1450">Afternoon (13:00)</span>
+                <span class="preset-chip" data-time="18:30" data-vehicles="2700">Evening Peak (18:30)</span>
+                <span class="preset-chip" data-time="23:00" data-vehicles="450">Late Night (23:00)</span>
+              </div>
+            </div>
+
+            <!-- 3. Vehicle Count Input & Slider -->
+            <div class="form-group">
+              <label class="form-label" for="pred-vehicle-count">
+                <span><i class="fa-solid fa-car"></i> Vehicle Inflow Rate</span>
+                <span class="badge-hint" id="pred-slider-val">1950 veh/hr</span>
+              </label>
+              <div class="slider-container">
+                <input type="range" class="form-range" id="pred-vehicle-slider" min="100" max="4000" step="50" value="1950">
+                <input type="number" class="form-control range-number-display" id="pred-vehicle-count" min="100" max="4000" value="1950">
+              </div>
+            </div>
+
+            <!-- 4. Weather Condition -->
+            <div class="form-group">
+              <label class="form-label">
+                <span><i class="fa-solid fa-cloud-sun"></i> Weather Condition</span>
+                <span class="badge-hint">Deceleration Factor</span>
+              </label>
+              <div class="chip-grid">
+                <div class="chip-option">
+                  <input type="radio" id="weather-clear" name="pred_weather" value="clear" checked>
+                  <label for="weather-clear" class="chip-label">
+                    <i class="fa-solid fa-sun"></i>
+                    <span>Clear</span>
+                  </label>
+                </div>
+                <div class="chip-option">
+                  <input type="radio" id="weather-rainy" name="pred_weather" value="rainy">
+                  <label for="weather-rainy" class="chip-label">
+                    <i class="fa-solid fa-cloud-rain"></i>
+                    <span>Rainy</span>
+                  </label>
+                </div>
+                <div class="chip-option">
+                  <input type="radio" id="weather-foggy" name="pred_weather" value="foggy">
+                  <label for="weather-foggy" class="chip-label">
+                    <i class="fa-solid fa-smog"></i>
+                    <span>Foggy</span>
+                  </label>
+                </div>
+                <div class="chip-option">
+                  <input type="radio" id="weather-storm" name="pred_weather" value="thunderstorm">
+                  <label for="weather-storm" class="chip-label">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Storm</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. Day Type -->
+            <div class="form-group">
+              <label class="form-label">
+                <span><i class="fa-solid fa-calendar-day"></i> Day Type</span>
+              </label>
+              <div class="chip-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="chip-option">
+                  <input type="radio" id="day-weekday" name="pred_daytype" value="weekday" checked>
+                  <label for="day-weekday" class="chip-label">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Weekday</span>
+                  </label>
+                </div>
+                <div class="chip-option">
+                  <input type="radio" id="day-weekend" name="pred_daytype" value="weekend">
+                  <label for="day-weekend" class="chip-label">
+                    <i class="fa-solid fa-umbrella-beach"></i>
+                    <span>Weekend</span>
+                  </label>
+                </div>
+                <div class="chip-option">
+                  <input type="radio" id="day-holiday" name="pred_daytype" value="holiday">
+                  <label for="day-holiday" class="chip-label">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                    <span>Holiday</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-predict" id="btn-run-prediction">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Predict Traffic
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Prediction Results Card -->
+        <div class="prediction-result-card">
+          <div class="result-badge-top">
+            <span class="road-badge" id="res-road-name">
+              <i class="fa-solid fa-road"></i> Tech Corridor Expressway (TC-101)
+            </span>
+            <span class="ai-confidence-pill" id="res-confidence">
+              Confidence: 95.4%
+            </span>
+          </div>
+
+          <!-- Circular Density SVG Gauge -->
+          <div class="gauge-wrapper">
+            <svg class="gauge-svg" viewBox="0 0 200 200">
+              <circle class="gauge-bg-circle" cx="100" cy="100" r="90"></circle>
+              <circle class="gauge-progress-circle" id="res-gauge-circle" cx="100" cy="100" r="90"></circle>
+            </svg>
+            <div class="gauge-center-text">
+              <div class="gauge-percent" id="res-gauge-percent">84%</div>
+              <div class="gauge-label">Traffic Density</div>
+            </div>
+          </div>
+
+          <!-- Congestion Status Banner (Low, Medium, High) -->
+          <div class="congestion-status-banner status-yellow" id="res-status-banner">
+            <div class="status-left">
+              <div class="status-dot-large"></div>
+              <div class="status-title-text">
+                <h4 id="res-status-title">Medium Congestion</h4>
+                <p id="res-status-desc">Moderate traffic volume with minor intersection queueing.</p>
+              </div>
+            </div>
+            <div class="speed-metric-box">
+              <div class="speed-num" id="res-speed-val">36.4</div>
+              <div class="speed-unit">Estimated Speed (km/h)</div>
+            </div>
+          </div>
+
+          <!-- AI Routing & Traffic Advice Recommendation -->
+          <div class="ai-recommendation-box">
+            <div class="rec-title">
+              <i class="fa-solid fa-robot"></i> Algorithmic Recommendation
+            </div>
+            <p class="rec-desc" id="res-recommendation">
+              Deploy adaptive signal timing (+15s green duration). Monitor arterial merge points at Junction 4.
+            </p>
+            <div style="margin-top:0.6rem; font-size:0.75rem; color:#64748b; display:flex; justify-content:space-between;">
+              <span>Weather Impact: <b id="res-weather-risk" style="color:#00f2fe;">Clear (Normal)</b></span>
+              <span>Model: <b style="color:#d8b4fe;">Greenshields + BPR Speed Regressor</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION D: Traffic Analytics (Interactive Charts using Chart.js)
+       ======================================================================== -->
+  <section class="analytics-section" id="analytics">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag"><i class="fa-solid fa-chart-column"></i> Data Intelligence</span>
+        <h2 class="section-title">Traffic <span class="text-gradient">Analytics</span></h2>
+        <p class="section-subtitle">
+          Interactive historical and predictive data visualization comparing vehicle volume, 
+          diurnal density cycles, vehicle classification, and corridor-level congestion.
+        </p>
+      </div>
+
+      <!-- Timeframe Filter Switcher -->
+      <div class="analytics-filter-bar">
+        <button class="chart-tab-btn active" data-filter="today">
+          <i class="fa-solid fa-calendar-day"></i> Live Today
+        </button>
+        <button class="chart-tab-btn" data-filter="weekly">
+          <i class="fa-solid fa-calendar-week"></i> 7-Day Trend
+        </button>
+        <button class="chart-tab-btn" data-filter="peakhours">
+          <i class="fa-solid fa-fire"></i> Peak Rush Hours
+        </button>
+      </div>
+
+      <!-- 4 Chart.js Cards Grid -->
+      <div class="charts-grid">
+        <!-- Chart 1: Traffic Volume Over Time -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-area">
+              <h4><i class="fa-solid fa-chart-line" style="color:var(--accent-cyan);"></i> Traffic Volume Over Time</h4>
+              <p>Historical volume vs AI predicted flow curves</p>
+            </div>
+            <span class="chart-badge">DUAL SERIES</span>
+          </div>
+          <div class="chart-canvas-container">
+            <canvas id="chart-traffic-volume"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 2: Hourly Traffic Density -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-area">
+              <h4><i class="fa-solid fa-chart-simple" style="color:var(--accent-blue);"></i> Hourly Traffic Density (24h)</h4>
+              <p>Congestion concentration peaks across daily commute</p>
+            </div>
+            <span class="chart-badge">GREEN / YELLOW / RED</span>
+          </div>
+          <div class="chart-canvas-container">
+            <canvas id="chart-hourly-density"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 3: Vehicle Distribution Breakdown -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-area">
+              <h4><i class="fa-solid fa-chart-pie" style="color:#c084fc;"></i> Vehicle Distribution Breakdown</h4>
+              <p>Modal split across monitored metropolitan corridors</p>
+            </div>
+            <span class="chart-badge">FLEET MIX</span>
+          </div>
+          <div class="chart-canvas-container">
+            <canvas id="chart-vehicle-dist"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 4: Corridor Congestion Comparison -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-area">
+              <h4><i class="fa-solid fa-road-circle-check" style="color:var(--status-green);"></i> Corridor Congestion Comparison</h4>
+              <p>Cross-arterial bottleneck index ranking</p>
+            </div>
+            <span class="chart-badge">6 SECTORS</span>
+          </div>
+          <div class="chart-canvas-container">
+            <canvas id="chart-corridor-comp"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION E: Traffic Monitoring (Simulated Live Road Feeds)
+       ======================================================================== -->
+  <section class="monitoring-section" id="monitoring">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag"><i class="fa-solid fa-tower-broadcast"></i> Live Grid Telemetry</span>
+        <h2 class="section-title">Smart Road <span class="text-gradient">Monitoring</span></h2>
+        <p class="section-subtitle">
+          Real-time sensor network tracking road status, volume intake, flow density, and road condition indicators across 6 major sectors.
+        </p>
+      </div>
+
+      <!-- Monitoring Interactive Controls -->
+      <div class="monitoring-controls">
+        <div class="control-left-status">
+          <span style="color:var(--text-muted); font-size:0.9rem;">
+            <i class="fa-solid fa-circle-dot" style="color:var(--status-green);"></i> 6 Sensors Online &amp; Broadcasting
+          </span>
+          <span style="font-size:0.75rem; color:#64748b;">(Auto-refreshes every 12s)</span>
+        </div>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <button class="btn btn-secondary btn-sm" id="btn-sim-flux">
+            <i class="fa-solid fa-arrows-rotate"></i> Simulate Fluctuation
+          </button>
+          <button class="btn btn-purple btn-sm" id="btn-sim-spike">
+            <i class="fa-solid fa-bolt"></i> Simulate Rush Hour Surge
+          </button>
+          <button class="btn btn-outline btn-sm" id="btn-reset-flux">
+            <i class="fa-solid fa-rotate-left"></i> Reset Baseline
+          </button>
+        </div>
+      </div>
+
+      <!-- 6 Road Cards Container (Rendered Dynamically via main.js) -->
+      <div class="monitoring-grid" id="monitoring-cards-container">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION F: About Project Section
+       ======================================================================== -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag"><i class="fa-solid fa-book-open"></i> Academic Overview</span>
+        <h2 class="section-title">About The <span class="text-gradient">Project</span></h2>
+        <p class="section-subtitle">
+          Comprehensive background on smart city transportation, machine learning models, and system architectural flow.
+        </p>
+      </div>
+
+      <!-- About Top Grid -->
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>What is an Intelligent Traffic Prediction System?</h3>
+          <p>
+            An <strong>Intelligent Traffic Prediction System (ITPS)</strong> is a data-driven urban informatics framework 
+            that captures spatial and temporal vehicular flow parameters to anticipate road bottlenecks before gridlocks form. 
+            By bridging historical sensor telemetry with predictive modeling, the system transforms reactive traffic lights 
+            into proactive, adaptive transportation networks.
+          </p>
+          <p>
+            Traditional traffic controllers rely on fixed-time cycle plans that fail during adverse weather, sudden accidents, 
+            or uneven commute surges. Our system integrates predictive analytics to optimize green-light splits, suggest 
+            peripheral bypass routes, and reduce overall commute friction.
+          </p>
+
+          <ul class="about-features-list">
+            <li>
+              <i class="fa-solid fa-circle-check"></i>
+              <span><strong>Machine Learning Integration:</strong> Uses regression trees and ensemble algorithms trained on historical flow, density, and rush-hour features.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check"></i>
+              <span><strong>Greenshields Flow Theory:</strong> Mathematically correlates vehicular density with velocity reduction to determine capacity limits.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check"></i>
+              <span><strong>Dynamic Weather Factor Weighting:</strong> Incorporates precipitation and visibility coefficients to predict real-world hydroplaning and delay risks.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check"></i>
+              <span><strong>Zero Paid API Dependency:</strong> Runs completely self-contained with offline simulation logic and Python Flask capabilities.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Architecture Diagram Visual -->
+        <div class="architecture-preview-box">
+          <img src="static/images/architecture.svg" alt="System Architecture Pipeline">
+        </div>
+      </div>
+
+      <!-- 4 Pillars Grid -->
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="fa-solid fa-gas-pump"></i></div>
+          <h4>Fuel &amp; Emission Reduction</h4>
+          <p>Minimizes stop-and-go idling at congested intersections, reducing urban carbon footprint and fuel wastage by up to 18%.</p>
+        </div>
+
+        <div class="pillar-card purple">
+          <div class="pillar-icon"><i class="fa-solid fa-truck-medical"></i></div>
+          <h4>Emergency Dispatch Priority</h4>
+          <p>Detects congested choke points in advance, enabling first responders and ambulances to receive prioritized green corridors.</p>
+        </div>
+
+        <div class="pillar-card green">
+          <div class="pillar-icon"><i class="fa-solid fa-stopwatch-20"></i></div>
+          <h4>Commuter Travel Optimization</h4>
+          <p>Empowers commuters and navigation providers with accurate estimated speeds and predictive congestion classifications.</p>
+        </div>
+
+        <div class="pillar-card pink">
+          <div class="pillar-icon"><i class="fa-solid fa-city"></i></div>
+          <h4>Smart City Urban Planning</h4>
+          <p>Provides municipal authorities with spatial-temporal bottleneck heat maps to plan future road expansions and transit corridors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION G: Team Members & Academic Details
+       ======================================================================== -->
+  <section class="team-section" id="team">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag"><i class="fa-solid fa-users"></i> Project Contributors</span>
+        <h2 class="section-title">Academic <span class="text-gradient">Team &amp; Guidance</span></h2>
+        <p class="section-subtitle">
+          Designed and developed by the Department of Computer Science and Engineering, KLH University.
+        </p>
+      </div>
+
+      <!-- Faculty Guide Card Highlight -->
+      <div class="faculty-guide-card">
+        <div class="guide-avatar">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <div class="guide-details">
+          <span class="guide-badge"><i class="fa-solid fa-award"></i> FACULTY PROJECT GUIDE</span>
+          <h3 class="guide-name">DR. N. SUNANDA</h3>
+          <p class="guide-meta">
+            Department of Computer Science and Engineering (CSE)<br>
+            KLH University • Academic Year 2026–2027
+          </p>
+        </div>
+        <div style="text-align:right;">
+          <span style="font-size:0.75rem; color:#d8b4fe; text-transform:uppercase; letter-spacing:1px; display:block; margin-bottom:0.25rem;">Mentorship</span>
+          <span style="color:#ffffff; font-weight:700; font-size:1rem;"><i class="fa-solid fa-check-double" style="color:var(--status-green);"></i> Capstone Mentor</span>
+        </div>
+      </div>
+
+      <!-- 3 Student Team Profile Cards -->
+      <div class="team-grid">
+        <!-- Member 1: TAMMISETTI VALLABH RAI -->
+        <div class="team-card member-1">
+          <div class="team-avatar-wrap">
+            <div class="team-avatar-inner">TV</div>
+          </div>
+          <h4 class="member-name">TAMMISETTI VALLABH RAI</h4>
+          <span class="member-id">ID: 2420030029</span>
+          <p class="member-role">
+            <strong>Team Lead &amp; ML Algorithm Engineer</strong><br>
+            Engineered the spatial-temporal traffic regression pipeline, Greenshields model integration, and prediction heuristics.
+          </p>
+        </div>
+
+        <!-- Member 2: PILLI SHIVA KUMAR -->
+        <div class="team-card member-2">
+          <div class="team-avatar-wrap">
+            <div class="team-avatar-inner">PS</div>
+          </div>
+          <h4 class="member-name">PILLI SHIVA KUMAR</h4>
+          <span class="member-id">ID: 2420030030</span>
+          <p class="member-role">
+            <strong>Backend Architect &amp; Data Modeler</strong><br>
+            Architected the Python Flask REST API, sample dataset generation, sensor telemetry simulation, and endpoint routing.
+          </p>
+        </div>
+
+        <!-- Member 3: YATA VIGNESHWAR REDDY -->
+        <div class="team-card member-3">
+          <div class="team-avatar-wrap">
+            <div class="team-avatar-inner">YV</div>
+          </div>
+          <h4 class="member-name">YATA VIGNESHWAR REDDY</h4>
+          <span class="member-id">ID: 2420030203</span>
+          <p class="member-role">
+            <strong>Frontend &amp; Data Visualization Lead</strong><br>
+            Designed the responsive dark cyber UI, Chart.js interactive analytics, SVG gauges, and real-time dashboard controllers.
+          </p>
+        </div>
+      </div>
+
+      <!-- Academic Metadata Banner -->
+      <div class="academic-meta-banner">
+        <div class="banner-item">
+          <span class="banner-label">Institution</span>
+          <span class="banner-val">KLH University</span>
+        </div>
+        <div class="banner-item">
+          <span class="banner-label">Department</span>
+          <span class="banner-val">Computer Science &amp; Engineering</span>
+        </div>
+        <div class="banner-item">
+          <span class="banner-label">Academic Year</span>
+          <span class="banner-val">2026–2027</span>
+        </div>
+        <div class="banner-item">
+          <span class="banner-label">Project Domain</span>
+          <span class="banner-val">AI &amp; Smart Transportation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Project Brand -->
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="static/images/logo.svg" alt="Traffic AI Logo" class="brand-icon">
+            <div class="brand-text">
+              <span class="brand-name">TRAFFIC<span class="text-gradient">AI</span> PREDICTOR</span>
+              <span class="brand-subtitle">INTELLIGENT CONGESTION SYSTEM</span>
+            </div>
+          </div>
+          <p>
+            An AI-powered academic engineering project modeling urban vehicular flow, 
+            providing predictive congestion warnings and adaptive signal control recommendations.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="footer-col">
+          <h5>Quick Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#home"><i class="fa-solid fa-angle-right"></i> Home Overview</a></li>
+            <li><a href="#dashboard"><i class="fa-solid fa-angle-right"></i> Statistics Dashboard</a></li>
+            <li><a href="#prediction"><i class="fa-solid fa-angle-right"></i> Traffic Prediction</a></li>
+            <li><a href="#analytics"><i class="fa-solid fa-angle-right"></i> Chart Analytics</a></li>
+            <li><a href="#monitoring"><i class="fa-solid fa-angle-right"></i> Sensor Monitoring</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Academic Details -->
+        <div class="footer-col">
+          <h5>Academic Details</h5>
+          <div class="footer-academic-info">
+            <p><strong>Department:</strong> CSE</p>
+            <p><strong>Institution:</strong> KLH University</p>
+            <p><strong>Year:</strong> 2026–2027</p>
+            <p><strong>Guide:</strong> DR. N. SUNANDA</p>
+          </div>
+        </div>
+
+        <!-- Col 4: Project Team -->
+        <div class="footer-col">
+          <h5>Project Team</h5>
+          <div class="footer-academic-info">
+            <p><i class="fa-solid fa-user-astronaut" style="color:var(--accent-cyan);"></i> TAMMISETTI VALLABH RAI (2420030029)</p>
+            <p><i class="fa-solid fa-user-astronaut" style="color:var(--accent-cyan);"></i> PILLI SHIVA KUMAR (2420030030)</p>
+            <p><i class="fa-solid fa-user-astronaut" style="color:var(--accent-cyan);"></i> YATA VIGNESHWAR REDDY (2420030203)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026–2027 <strong>INTELLIGENT TRAFFIC PREDICTION SYSTEM</strong>. Computer Science &amp; Engineering, KLH University.
+        </div>
+        <div style="display:flex; gap:1.25rem;">
+          <span style="color:var(--accent-cyan);"><i class="fa-solid fa-code"></i> Python Flask + HTML5/CSS3/JS</span>
+          <span><i class="fa-solid fa-bolt"></i> Chart.js Visualization</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODALS & OVERLAYS
+       ======================================================================== -->
+
+  <!-- 1. Simulated CCTV / Radar Sensor Modal -->
+  <div class="modal-overlay" id="cctv-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="cctv-modal-road-title">Road Sensor Radar Feed</h3>
+        <button class="btn-close-modal" onclick="closeCCTVModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="cctv-screen">
+          <div class="cctv-scanline"></div>
+          
+          <div class="cctv-hud-overlay">
+            <span id="cctv-sensor-id">SENSOR FEED: TC-101 | LIVE</span>
+            <span><i class="fa-solid fa-circle" style="color:#ef4444; font-size:0.6rem;"></i> REC 1080p 60FPS</span>
+          </div>
+
+          <div class="cctv-radar-center">
+            <div class="radar-sweep"></div>
+          </div>
+
+          <!-- Simulated Optical Recognition Bounding Boxes -->
+          <div style="position:absolute; top:28%; left:35%; width:70px; height:45px; border:1px solid #00f2fe; background:rgba(0,242,254,0.1); border-radius:3px; display:flex; align-items:flex-start; padding:2px;">
+            <span style="font-size:8px; font-family:monospace; color:#00f2fe;">SEDAN 64km/h</span>
+          </div>
+          <div style="position:absolute; top:54%; left:58%; width:85px; height:50px; border:1px solid #d946ef; background:rgba(217,70,239,0.1); border-radius:3px; display:flex; align-items:flex-start; padding:2px;">
+            <span style="font-size:8px; font-family:monospace; color:#ff76ea;">BUS 42km/h</span>
+          </div>
+          <div style="position:absolute; top:65%; left:22%; width:50px; height:35px; border:1px solid #10b981; background:rgba(16,185,129,0.1); border-radius:3px; display:flex; align-items:flex-start; padding:2px;">
+            <span style="font-size:8px; font-family:monospace; color:#10b981;">BIKE 48km/h</span>
+          </div>
+
+          <div style="position:absolute; bottom:12px; left:20px; font-family:monospace; font-size:0.75rem; color:#94a3b8;">
+            AI OPTICAL INGESTION &bull; VEHICLE CLASSIFICATION ACTIVE
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1rem; margin-top:1.5rem; text-align:center;">
+          <div style="background:rgba(8,17,34,0.7); padding:0.8rem; border-radius:8px; border:1px solid rgba(0,242,254,0.1);">
+            <div style="font-size:0.75rem; color:#94a3b8;">Detected Inflow</div>
+            <div style="font-size:1.15rem; font-weight:700; color:#ffffff;" id="cctv-hud-veh">2,150 veh/hr</div>
+          </div>
+          <div style="background:rgba(8,17,34,0.7); padding:0.8rem; border-radius:8px; border:1px solid rgba(0,242,254,0.1);">
+            <div style="font-size:0.75rem; color:#94a3b8;">Radar Speed</div>
+            <div style="font-size:1.15rem; font-weight:700; color:#00f2fe;" id="cctv-hud-speed">36.4 km/h</div>
+          </div>
+          <div style="background:rgba(8,17,34,0.7); padding:0.8rem; border-radius:8px; border:1px solid rgba(0,242,254,0.1);">
+            <div style="font-size:0.75rem; color:#94a3b8;">Road Occupancy</div>
+            <div style="font-size:1.15rem; font-weight:700; color:#f59e0b;" id="cctv-hud-density">84%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Viva Presentation Sheet / Executive Project Report Modal -->
+  <div class="modal-overlay" id="report-modal">
+    <div class="modal-content" style="max-width:850px;">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-graduation-cap" style="color:var(--accent-cyan);"></i> Project Executive Summary (Viva Sheet)</h3>
+        <button class="btn-close-modal" onclick="closeReportModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="printable-report">
+        <div style="border-bottom: 2px solid rgba(0,242,254,0.3); padding-bottom: 1rem; margin-bottom: 1.5rem; display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <h2 style="font-size:1.4rem; color:#ffffff; font-weight:800;">INTELLIGENT TRAFFIC PREDICTION SYSTEM</h2>
+            <p style="color:var(--accent-cyan); font-size:0.88rem; font-weight:600;">Department of Computer Science and Engineering | KLH University (2026–2027)</p>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> Print Sheet
+          </button>
+        </div>
+
+        <div style="margin-bottom:1.5rem; color:#cbd5e1; font-size:0.92rem; line-height:1.6;">
+          <h4 style="color:#ffffff; margin-bottom:0.4rem; font-size:1rem;"><i class="fa-solid fa-bullseye" style="color:var(--accent-cyan);"></i> Project Abstract &amp; Objective</h4>
+          <p>
+            Rapid urbanization causes immense vehicular congestion, leading to excessive carbon emissions, fuel wastage, and transit delays. 
+            The <strong>Intelligent Traffic Prediction System</strong> utilizes spatial-temporal traffic parameters, Greenshields Flow Theory, 
+            and Bureau of Public Roads (BPR) velocity models to predict vehicular congestion and recommend adaptive signal control.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.5rem;">
+          <div style="background:rgba(7,15,30,0.8); border:1px solid rgba(0,242,254,0.15); border-radius:10px; padding:1.2rem;">
+            <h5 style="color:var(--accent-cyan); margin-bottom:0.6rem; font-size:0.88rem;"><i class="fa-solid fa-microchip"></i> System Architecture</h5>
+            <ul style="list-style:none; font-size:0.82rem; color:#94a3b8; display:flex; flex-direction:column; gap:0.4rem;">
+              <li>• Ingestion: Inductive loops, Smart CCTV, Weather API</li>
+              <li>• Processing: Greenshields &amp; Volume-to-Capacity Ratio</li>
+              <li>• Inference: BPR Speed Estimation &amp; Random Forest Regressor</li>
+              <li>• Actuation: Adaptive green-wave timing &amp; VMS advice</li>
+            </ul>
+          </div>
+
+          <div style="background:rgba(7,15,30,0.8); border:1px solid rgba(121,40,202,0.25); border-radius:10px; padding:1.2rem;">
+            <h5 style="color:#c084fc; margin-bottom:0.6rem; font-size:0.88rem;"><i class="fa-solid fa-chart-line"></i> Performance Metrics</h5>
+            <ul style="list-style:none; font-size:0.82rem; color:#94a3b8; display:flex; flex-direction:column; gap:0.4rem;">
+              <li>• Model Prediction Accuracy: 94.8%</li>
+              <li>• Average Travel Delay Reduction: ~22 minutes</li>
+              <li>• Fuel Idling Savings: ~1,420 Liters/day</li>
+              <li>• Status Indicator: Green (Low), Yellow (Med), Red (High)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background:rgba(7,15,30,0.9); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:1.2rem; margin-bottom:1.5rem;">
+          <h5 style="color:#ffffff; margin-bottom:0.75rem; font-size:0.9rem;"><i class="fa-solid fa-users"></i> Project Credentials &amp; Team Details</h5>
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1rem; font-size:0.82rem;">
+            <div>
+              <strong style="color:#ffffff;">TAMMISETTI VALLABH RAI</strong><br>
+              <span style="color:var(--accent-cyan); font-family:monospace;">ID: 2420030029</span><br>
+              <span style="color:#94a3b8;">Team Lead &amp; ML Engineer</span>
+            </div>
+            <div>
+              <strong style="color:#ffffff;">PILLI SHIVA KUMAR</strong><br>
+              <span style="color:var(--accent-cyan); font-family:monospace;">ID: 2420030030</span><br>
+              <span style="color:#94a3b8;">Backend &amp; Data Architect</span>
+            </div>
+            <div>
+              <strong style="color:#ffffff;">YATA VIGNESHWAR REDDY</strong><br>
+              <span style="color:var(--accent-cyan); font-family:monospace;">ID: 2420030203</span><br>
+              <span style="color:#94a3b8;">Frontend &amp; Visualization Lead</span>
+            </div>
+          </div>
+          <div style="margin-top:1rem; padding-top:0.8rem; border-top:1px solid rgba(255,255,255,0.06); font-size:0.85rem; color:#cbd5e1;">
+            <strong>Faculty Project Guide:</strong> DR. N. SUNANDA &bull; Department of CSE &bull; KLH University
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Application Scripts -->
+  <script src="static/js/prediction.js"></script>
+  <script src="static/js/charts.js"></script>
+  <script src="static/js/main.js"></script>
+</body>
+</html>
